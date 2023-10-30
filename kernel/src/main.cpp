@@ -8,7 +8,8 @@
 
 static volatile struct limine_framebuffer_request framebuffer_request = {
     .id = LIMINE_FRAMEBUFFER_REQUEST,
-    .revision = 0
+    .revision = 0,
+    .response = 0
 };
 
 // GCC and Clang reserve the right to generate calls to the following
@@ -79,7 +80,7 @@ static void hcf(void) {
 // The following will be our kernel's entry point.
 // If renaming _start() to something else, make sure to change the
 // linker script accordingly.
-void _start(void) {
+extern "C" void _start(void) {
     // Ensure we got a framebuffer.
     if (framebuffer_request.response == NULL
      || framebuffer_request.response->framebuffer_count < 1) {
