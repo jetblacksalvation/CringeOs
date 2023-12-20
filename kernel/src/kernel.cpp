@@ -22,12 +22,12 @@
 // };
 extern "C" void _start(void) {
     // Ensure we got a framebuffer.
-    if (Console::framebuffer_request.response == NULL
-     || Console::framebuffer_request.response->framebuffer_count < 1) {
+    if (Console::framebufferRequest.response == NULL
+     || Console::framebufferRequest.response->framebuffer_count < 1) {
     }
     // hcf();
+    Console::p_char((uint8_t*)Console::asciiMap[0]);
     // Fetch the first framebuffer.
-    struct limine_framebuffer *framebuffer = Console::framebuffer_request.response->framebuffers[0];
 
     // Note: we assume the framebuffer model is RGB with 32-bit pixels.
     // for (size_t i = 0; i < 100; i++) {
