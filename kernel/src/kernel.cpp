@@ -16,7 +16,6 @@ extern "C" void _start(void) {
     if (Console::framebufferRequest.response == NULL
      || Console::framebufferRequest.response->framebuffer_count < 1) {
     }   
-    volatile uint32_t PCI_ADDR = *(volatile uint32_t* )(0xCF8);
     
     // hcf();
     Console::p_str("kernel loaded\n");
